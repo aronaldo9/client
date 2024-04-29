@@ -10,10 +10,11 @@ export function JoinLayout(props) {
 
   if (user) {
     router.push("/");
+    return null;
   }
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <div className="flex justify-between items-center p-4">
         <Link href="/">
           <Image
@@ -26,14 +27,14 @@ export function JoinLayout(props) {
           <Icon name="close" className="text-xl text-red-500 cursor-pointer" />
         </Link>
       </div>
-      <div className="flex flex-row">
-        <div className="w-1/2">
-          <div className="h-screen flex items-center justify-center">
+      <div className="flex flex-col flex-1 md:flex-row">
+        <div className="w-full md:w-1/2">
+          <div className="flex items-center justify-center h-screen">
             {children}
           </div>
         </div>
         <div
-          className="w-1/2 h-full bg-center bg-cover"
+          className="hidden md:block w-1/2 bg-center bg-cover"
           style={{ backgroundImage: "url('/images/imgRegister.png')" }}
         ></div>
       </div>
