@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Image } from "semantic-ui-react";
 import { Account } from "../Account";
-import { Menu } from "../Menu";
+import { MenuLarge } from "../Menu";
 
-export function TopBar(props) {
+export function TopBarLarge(props) {
   const { isOpenSearch } = props;
 
   return (
@@ -14,7 +14,7 @@ export function TopBar(props) {
         </Link>
       </div>
       <div className="w-3/5 flex justify-center">
-        <Menu isOpenSearch={isOpenSearch} />
+        <MenuLarge isOpenSearch={isOpenSearch} />
       </div>
       <div className="w-1/5 flex justify-end">
         <Account />
