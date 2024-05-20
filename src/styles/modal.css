@@ -1,0 +1,17 @@
+.ui.modal.visible.active {
+  background-color: #ffffff; /* Color de fondo */
+  border-radius: 12px; /* Borde redondeado */
+  overflow: hidden; /* Ocultar el desbordamiento */
+}
+
+.ui.modal.visible.active > .header {
+  background-color: #f3f4f6; /* Color de fondo del encabezado */
+  color: #000000; /* Color del texto del encabezado */
+  font-size: 20px; /* Tamaño de fuente del encabezado */
+  padding: 30px 30px 0 30px; /* Espaciado del encabezado */
+}
+
+.ui.modal.visible.active > .content {
+  background-color: #f3f4f6; /* Color de fondo del contenido */
+  padding: 30px; /* Espaciado del contenido */
+}

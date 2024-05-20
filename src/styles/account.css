@@ -1,0 +1,44 @@
+/* Estilos base de los tabs para pantallas pequeñas (mobile-first) */
+.tabs {
+  position: relative;
+  margin-top: 40px;
+}
+
+.tabs > .menu {
+  display: block; /* Diseño de bloque para mostrar los elementos en una columna */
+  margin-top: 20px; /* Ajuste del margen superior */
+}
+
+.tabs > .menu > .item {
+  margin-bottom: 5px; /* Espacio entre los elementos */
+}
+
+.tabs > .menu > .item:last-child {
+  margin-bottom: 0; /* Eliminar el espacio inferior del último elemento */
+}
+
+/* Media query para ajuste en pantallas más grandes */
+@media (min-width: 769px) {
+  /* Modificaciones específicas para pantallas grandes */
+  .tabs > .menu {
+    display: flex; /* Utilizar flexbox para distribuir los elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en múltiples líneas */
+    justify-content: flex-start; /* Alinear los elementos a la izquierda */
+    margin-top: 0; /* Eliminar el margen superior */
+  }
+
+  .tabs > .menu > .item {
+    white-space: nowrap; /* Evitar el corte de texto y el ajuste vertical */
+    margin-right: 10px; /* Espacio entre los elementos */
+  }
+
+  .tabs > div > a:last-child {
+    position: absolute !important;
+    right: 0;
+  }
+
+  .tabs > div > a:nth-last-child(2) {
+    position: absolute !important;
+    right: 46px;
+  }
+}

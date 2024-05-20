@@ -22,14 +22,16 @@ export function Account() {
 
   return (
     <div className="account flex items-center">
+      {/* Icono del carrito */}
       <button
         className={classNames(
           "bg-transparent",
-          "text-black",
           "hover:text-red-500",
           "focus:outline-none",
           "transition-colors duration-300",
-          "mr-4"
+          "mr-4",
+          "text-black", // Color negro para pantallas medianas y pequeñas
+          "lg:text-white" // Color blanco para pantallas grandes
         )}
         onClick={goToCart}
       >
@@ -41,13 +43,16 @@ export function Account() {
         )}
       </button>
 
+      {/* Icono de usuario */}
       <button
         className={classNames(
           "bg-transparent",
           user ? "text-black" : "text-red-500",
           "hover:text-red-500",
           "focus:outline-none",
-          "transition-colors duration-300"
+          "transition-colors duration-300",
+          "text-black", // Color negro para pantallas medianas y pequeñas
+          "lg:text-white" // Color blanco para pantallas grandes
         )}
         onClick={user ? goToAccount : goToLogin}
       >

@@ -13,7 +13,7 @@ export function TopBarLarge(props) {
           <Image className="h-10" src="/images/logo.png" alt="Logo Rosant" />
         </Link>
       </div>
-      <div className="w-3/5 flex justify-center">
+      <div className="w-3/5 flex justify-center backdrop-blur">
         <MenuLarge isOpenSearch={isOpenSearch} />
       </div>
       <div className="w-1/5 flex justify-end">

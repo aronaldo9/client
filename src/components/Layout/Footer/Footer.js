@@ -3,7 +3,7 @@ import { Button, Image } from "semantic-ui-react";
 
 export function Footer() {
   return (
-    <div className="bg-black py-8 fixed bottom-0 w-full">
+    <div className="bg-black py-8 w-full">
       <div className="mx-auto px-4">
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between">
           <div className="w-full sm:w-1/3 mb-4 sm:mb-0 text-center sm:text-center mx-auto">

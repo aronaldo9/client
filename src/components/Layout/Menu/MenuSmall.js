@@ -38,7 +38,7 @@ export function MenuSmall({ isOpenSearch }) {
               key={category.id}
             >
               <div
-                className={`flex items-center cursor-pointer no-underline mx-4 my-2 px-4 py-2 rounded-md text-white`}
+                className={`flex items-center cursor-pointer no-underline mx-4 my-2 px-4 py-2 rounded-md text-white hover:text-red-600`}
               >
                 <Image
                   className="h-4 pr-2"

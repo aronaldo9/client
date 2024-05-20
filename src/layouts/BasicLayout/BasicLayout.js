@@ -16,7 +16,7 @@ export function BasicLayout(props) {
   } = props;
 
   const isSmallScreen = useMediaQuery({ query: "(max-width: 768px)" });
-  const isMediumScreen = useMediaQuery({ query: "(max-width: 1223px)" });
+  const isMediumScreen = useMediaQuery({ query: "(max-width: 996px)" });
 
   return (
     <>
@@ -28,10 +28,10 @@ export function BasicLayout(props) {
         <TopBarLarge isOpenSearch={isOpenSearch} />
       )}
 
-      <div className="container mx-auto px-4">
+      <div className="">
         <div className={classNames({ "pt-28": relative })}>
           {isContainer ? (
-            <div className="container mx-auto">{children}</div>
+            <div className="mx-auto max-w-screen-lg">{children}</div>
           ) : (
             children
           )}
