@@ -5,3 +5,7 @@ export * from "./Label";
 export * from "./GridProducts";
 export * from "./BarInfo";
 export * from "./BannerAd";
+export * from "./NoResult";
+export * from "./Pagination";
+export * from "./WhishlistIcon";
+export * from "./FullModal";

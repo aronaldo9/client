@@ -1,4 +1,5 @@
 import { Home } from "@/components/Home";
+import { BannerPersonalJewels } from "@/components/Home/BannerPersonalJewels";
 import { Separator, BarInfo, BannerAd } from "@/components/Shared";
 import { BasicLayout } from "@/layouts";
 import { Container } from "semantic-ui-react";
@@ -62,6 +63,16 @@ export default function HomePage() {
             categoryId={categorysId.joyas}
           />
         </Container>
+
+        <Separator height={50} />
+
+        <BannerPersonalJewels
+          title="¿Alguna vez has querido tener una joya única?"
+          subtitle="Muéstranos tu idea y la haremos realidad"
+          btnTitle="Ver más"
+          btnLink="/personalizados"
+          image="/images/joyasPerso.jpeg"
+        />
 
         <Separator height={100} />
       </BasicLayout>

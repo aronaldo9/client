@@ -7,16 +7,21 @@ export function TopBarMedium(props) {
   const { isOpenSearch } = props;
 
   return (
-    <div className="topBar fixed flex items-center w-full p-5 z-50">
-      <div className="w-1/4">
+    <div className="topBar flex items-center justify-between w-full p-5 z-50">
+      {/* Menú */}
+      <div className="flex items-center">
+        {" "}
+        {/* Envuelve el menú en un contenedor flex para alinear los elementos */}
+        <MenuMedium isOpenSearch={isOpenSearch} />
+      </div>
+      {/* Logo */}
+      <div>
         <Link href="/">
           <Image className="h-10" src="/images/logo.png" alt="Logo Rosant" />
         </Link>
       </div>
-      <div className="w-1/2 flex justify-center">
-        <MenuMedium isOpenSearch={isOpenSearch} />
-      </div>
-      <div className="w-1/4 flex justify-end">
+      {/* Cuenta */}
+      <div>
         <Account />
       </div>
     </div>

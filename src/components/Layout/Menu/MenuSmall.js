@@ -1,14 +1,22 @@
+import { useEffect, useState } from "react";
+import { map } from "lodash";
+import { Category } from "@/api";
 import Link from "next/link";
 import { Icon, Image, Input } from "semantic-ui-react";
-import { useState, useEffect } from "react";
-import { Category } from "@/api";
+import { useRouter } from "next/router";
 
 const categoryCtrl = new Category();
 
-export function MenuSmall({ isOpenSearch }) {
+export function MenuSmall(props) {
+  const { isOpenSearch } = props;
   const [categories, setCategories] = useState(null);
-  const [showSearch, setShowSearch] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(isOpenSearch);
+  const [searchText, setSearchText] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const openCloseSearch = () => setShowSearch((prevState) => !prevState);
+  const toggleMenu = () => setIsMenuOpen((prevState) => !prevState);
 
   useEffect(() => {
     (async () => {
@@ -21,61 +29,77 @@ export function MenuSmall({ isOpenSearch }) {
     })();
   }, []);
 
-  const openCloseSearch = () => setShowSearch((prevState) => !prevState);
-  const toggleMenu = () => setMenuOpen((prevState) => !prevState);
+  useEffect(() => {
+    setSearchText(router.query.s || "");
+  }, []);
+
+  const onSearch = (text) => {
+    setSearchText(text);
+    router.replace(`/search?s=${text}`);
+  };
 
   return (
-    <div className="relative">
-      <div
-        className={`flex flex-col items-stretch ${
-          menuOpen ? "text-white" : "text-black"
-        } bg-black`}
+    <div className="relative w-full z-50">
+      <button
+        className=" hover:bg-gray-200 flex items-center justify-center rounded-full h-12 w-12 border-none focus:outline-none transition duration-300 ease-in-out"
+        onClick={toggleMenu}
       >
-        {categories &&
-          categories.map((category) => (
-            <Link
-              href={`/products/${category.attributes.slug}`}
-              key={category.id}
-            >
-              <div
-                className={`flex items-center cursor-pointer no-underline mx-4 my-2 px-4 py-2 rounded-md text-white hover:text-red-600`}
-              >
-                <Image
-                  className="h-4 pr-2"
-                  src={category.attributes.icon.data.attributes.url}
-                />
-                <span>{category.attributes.title}</span>
-              </div>
-            </Link>
-          ))}
-      </div>
+        <Icon name="bars" className="text-black text-l ml-0 px-1 mx-auto" />
+      </button>
 
       <div
-        className={`${
-          showSearch ? "block" : "hidden"
-        } absolute top-0 left-0 w-full bg-black`}
+        className={`absolute left-0 w-full bg-gray-200 transition-all duration-300 ease-in-out ${
+          isMenuOpen ? "max-h-screen" : "max-h-0"
+        } overflow-hidden ${isMenuOpen ? "w-screen m-0" : ""}`}
       >
-        <div className="container mx-auto flex items-center justify-between py-4">
-          <Input
+        <button
+          className="bg-red-700 hover:bg-red-500 flex items-center justify-center rounded-full h-12 w-12 border-none focus:outline-none transition duration-300 ease-in-out mt-4 mx-auto"
+          onClick={openCloseSearch}
+        >
+          <Icon name="search" className="text-white text-l ml-0 px-1 mx-auto" />
+        </button>
+
+        <div className={`${showSearch ? "flex" : "hidden"} `}>
+          <input
             id="search-products"
             placeholder="Buscador"
-            className="bg-red-700 text-white placeholder-white"
+            className="w-80 mx-auto bg-red-700 text-white placeholder-white rounded-full px-4 py-2 mt-2 focus:outline-none"
+            value={searchText}
+            onChange={(e) => onSearch(e.target.value)}
           />
           <Icon
             name="close"
-            className="text-white cursor-pointer"
+            className="text-black cursor-pointer ml-2 px-6"
             onClick={openCloseSearch}
           />
         </div>
-      </div>
 
-      {menuOpen && (
-        <div className="absolute top-0 right-0 p-4">
-          <button className="focus:outline-none" onClick={toggleMenu}>
-            <Icon name="close" className="text-white" />
-          </button>
+        <div className="flex flex-col items-start py-4 px-6">
+          {map(categories, (category) => (
+            <Link
+              className="flex items-center justify-between text-black cursor-pointer no-underline hover:text-red-600 mb-2"
+              key={category.id}
+              href={`/products/${category.attributes.slug}`}
+              onClick={toggleMenu} // close menu on click
+            >
+              <Image
+                className="h-4 pr-2"
+                src={category.attributes.icon.data.attributes.url}
+              />
+              {category.attributes.title}
+            </Link>
+          ))}
+
+          <Link
+            className="flex items-center justify-between text-black cursor-pointer no-underline hover:text-red-600"
+            href="/about"
+            onClick={toggleMenu} // close menu on click
+          >
+            <Icon name="users" className="h-4 pr-6 pb-6" />
+            <span>Nosotros</span>
+          </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.headerWallpaper {
+  display: flex;
+  position: relative;
+  height: 300px; /* Altura por defecto para dispositivos móviles */
+}
+
+@media (min-width: 640px) {
+  /* sm */
+  .headerWallpaper {
+    height: 400px; /* Altura para pantallas pequeñas */
+  }
+}
+
+@media (min-width: 768px) {
+  /* md */
+  .headerWallpaper {
+    height: 500px; /* Altura para pantallas medianas y más grandes */
+  }
+}
+
+.headerWallpaper::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  bottom: -1px;
+  height: 60px;
+  width: 100%;
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+
+.headerWallpaper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

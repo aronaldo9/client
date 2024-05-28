@@ -40,4 +40,65 @@ export class Product {
       throw error;
     }
   }
+
+  async getProductsByCategorySlug(slug, page) {
+    try {
+      const filters = `filters[category][slug][$eq]=${slug}`;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+      const populate = "populate=*";
+      const urlParams = `${filters}&${pagination}&${populate}`;
+
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${urlParams}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async searchProducts(text, page) {
+    try {
+      const filters = `filters[$or][0][name][$contains]=${text}&filters[$or][1][brand][$contains]=${text}`;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+      const populate = "populate=*";
+      const urlParams = `${filters}&${pagination}&${populate}`;
+
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${urlParams}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getBySlug(slug) {
+    try {
+      const filter = `filters[slug][$eq]=${slug}`;
+      const populateProduct =
+        "populate[0]=wallpaper&populate[1]=img&populate[2]=gallery&populate[3]=category";
+      const populateCategory = "populate[6]=category.icon";
+      const populates = `${populateProduct}&${populateCategory}`;
+
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${filter}&${populates}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result.data[0];
+    } catch (error) {
+      throw error;
+    }
+  }
 }

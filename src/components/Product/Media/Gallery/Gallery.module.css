@@ -1,0 +1,39 @@
+.carouselContainer {
+  height: 100%;
+}
+
+.carouselContainer > div {
+  height: 100%;
+}
+
+.carouselContainer > div > div {
+  width: 80%;
+  height: calc(100% - 100px);
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.carouselContainer .dots {
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100px;
+}
+
+.carouselContainer .dots > li {
+  height: 60%;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.carouselContainer .dots > li > img {
+  border-radius: 10px;
+}
+
+.carouselContainer .dots > li > img:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
