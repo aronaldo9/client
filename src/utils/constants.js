@@ -11,6 +11,7 @@ export const ENV = {
     CATEGORY: "categories",
     ADDRESS: "addresses",
     PRODUCT: "products",
+    WISHLIST: "wishlists",
   },
   TOKEN: "token",
 };

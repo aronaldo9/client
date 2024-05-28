@@ -30,8 +30,7 @@ export function Account() {
           "focus:outline-none",
           "transition-colors duration-300",
           "mr-4",
-          "text-black", // Color negro para pantallas medianas y pequeñas
-          "lg:text-white" // Color blanco para pantallas grandes
+          "text-black"
         )}
         onClick={goToCart}
       >
@@ -51,8 +50,7 @@ export function Account() {
           "hover:text-red-500",
           "focus:outline-none",
           "transition-colors duration-300",
-          "text-black", // Color negro para pantallas medianas y pequeñas
-          "lg:text-white" // Color blanco para pantallas grandes
+          "text-black"
         )}
         onClick={user ? goToAccount : goToLogin}
       >
