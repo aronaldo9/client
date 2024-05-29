@@ -2,12 +2,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTag } from "@fortawesome/free-solid-svg-icons";
 import { fn } from "@/utils";
 import { WishlistIcon } from "@/components/Shared/WhishlistIcon";
+import { useCart } from "@/hooks";
+import { useState } from "react";
 
 export function Panel(props) {
   const { productId, product } = props;
+  const [loading, setLoading] = useState(false);
+  const { addCart } = useCart();
 
   const category = product.category.data;
   const pvp = fn.calcDiscount(product.price, product.discount);
+
+  const addCartWrapper = () => {
+    setLoading(true);
+    addCart(productId);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
 
   return (
     <div className="relative flex flex-col md:flex-row mt-[-150px] w-[90%] md:w-[80%] mx-auto">
@@ -58,7 +71,11 @@ export function Panel(props) {
             <span className="text-4xl">{pvp}€</span>
           </div>
 
-          <button className="bg-red-600 text-white py-2 px-4 rounded w-full hover:bg-red-800">
+          <button
+            className="bg-red-600 text-white py-2 px-4 rounded w-full hover:bg-red-800"
+            onClick={addCartWrapper}
+            loading={loading}
+          >
             Comprar ahora
           </button>
 
