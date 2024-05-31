@@ -1,13 +1,12 @@
-import { useAuth } from "@/hooks";
+import { useAuth, useCart } from "@/hooks";
 import { useRouter } from "next/router";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-const total = 5;
-
 export function Account() {
   const { user } = useAuth();
+  const { total } = useCart();
   const router = useRouter();
 
   const goToLogin = () => router.push("/join/sign-in");
