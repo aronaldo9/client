@@ -1,4 +1,5 @@
 import { Info, Settings, Address, Wishlist } from "@/components/Account";
+import { Orders } from "@/components/Account/Orders/Orders";
 import { Separator } from "@/components/Shared";
 import { useAuth } from "@/hooks";
 import { BasicLayout } from "@/layouts";
@@ -23,7 +24,8 @@ export default function AccountPage() {
       menuItem: "Mis pedidos",
       render: () => (
         <Tab.Pane attached={false}>
-          <p>Mis pedidos...</p>
+          <Orders />
+          <Separator height={80} />
         </Tab.Pane>
       ),
     },

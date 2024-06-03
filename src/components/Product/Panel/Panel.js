@@ -4,6 +4,7 @@ import { fn } from "@/utils";
 import { WishlistIcon } from "@/components/Shared/WhishlistIcon";
 import { useCart } from "@/hooks";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 export function Panel(props) {
   const { productId, product } = props;
@@ -72,11 +73,17 @@ export function Panel(props) {
           </div>
 
           <button
-            className="bg-red-600 text-white py-2 px-4 rounded w-full hover:bg-red-800"
+            className="bg-red-600 text-white py-2 px-4 rounded w-full hover:bg-red-800 relative"
             onClick={addCartWrapper}
-            loading={loading}
+            disabled={loading}
           >
-            Comprar ahora
+            {loading ? (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <ClipLoader color="#ffffff" loading={true} size={24} />
+              </div>
+            ) : (
+              "Comprar ahora"
+            )}
           </button>
 
           <WishlistIcon

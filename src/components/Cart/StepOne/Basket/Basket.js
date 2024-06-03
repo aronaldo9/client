@@ -38,7 +38,7 @@ export function Basket(props) {
                   <p>{product.attributes.category.data.attributes.title}</p>
                 </div>
                 <Icon
-                  name="trash alternate online"
+                  name="trash alternate"
                   link
                   onClick={() => deleteItem(product.id)}
                 />

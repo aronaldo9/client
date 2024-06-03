@@ -31,7 +31,7 @@ export function HeaderCart() {
     <div className="fixed top-0 left-0 w-full p-4 z-50 bg-white flex flex-col lg:flex-row items-center justify-between">
       <div className="w-full flex justify-between items-center lg:w-1/5">
         <Link href="/">
-          <Image src="/images/logo.png" alt="Rosant" width={150} height={30} />
+          <img src="/images/logo.png" alt="Rosant" width={150} height={30} />
         </Link>
         <div className="lg:hidden flex items-center">
           <FontAwesomeIcon
