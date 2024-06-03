@@ -1,6 +1,6 @@
 import { Info, Settings, Address, Wishlist } from "@/components/Account";
 import { Orders } from "@/components/Account/Orders/Orders";
-import { Separator } from "@/components/Shared";
+import { Separator, Seo } from "@/components/Shared";
 import { useAuth } from "@/hooks";
 import { BasicLayout } from "@/layouts";
 import { useRouter } from "next/router";
@@ -71,6 +71,7 @@ export default function AccountPage() {
 
   return (
     <>
+      <Seo title="Mi cuenta" />
       <BasicLayout isContainer relative>
         <Info />
 

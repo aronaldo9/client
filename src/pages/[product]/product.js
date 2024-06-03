@@ -1,6 +1,6 @@
 import { BasicLayout } from "@/layouts";
 import { Product } from "@/components/Product";
-import { Separator } from "@/components/Shared";
+import { Separator, Seo } from "@/components/Shared";
 
 export default function ProductPage(props) {
   const { product } = props;
@@ -10,6 +10,10 @@ export default function ProductPage(props) {
 
   return (
     <>
+      <Seo
+        title={product.attributes.name}
+        description={product.attributes.description}
+      />
       <BasicLayout>
         <Product.HeaderWallpaper image={wallpaper.data.attributes.url} />
 

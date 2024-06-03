@@ -4,6 +4,7 @@ import { CartLayout } from "@/layouts";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Cart } from "@/components/Cart";
+import { Seo } from "@/components/Shared";
 
 const productCtrl = new Product();
 
@@ -35,6 +36,7 @@ export default function CartPage() {
 
   return (
     <>
+      <Seo title="Carrito de compra" />
       <CartLayout>
         {currentStep === 1 && <Cart.StepOne products={products} />}
         {currentStep === 2 && <Cart.StepTwo products={products} />}

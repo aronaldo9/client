@@ -1,6 +1,6 @@
 import { Home } from "@/components/Home";
 import { BannerPersonalJewels } from "@/components/Home/BannerPersonalJewels";
-import { Separator, BarInfo, BannerAd } from "@/components/Shared";
+import { Separator, BarInfo, BannerAd, Seo } from "@/components/Shared";
 import { BasicLayout } from "@/layouts";
 import { Container } from "semantic-ui-react";
 
@@ -13,7 +13,7 @@ const categorysId = {
 export default function HomePage() {
   return (
     <>
-      {/* SEO */}
+      <Seo />
 
       <BasicLayout>
         <Home.BannerLastProductPublished />

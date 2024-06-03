@@ -3,6 +3,7 @@ import {
   NoResult,
   Pagination,
   Separator,
+  Seo,
 } from "@/components/Shared";
 import { BasicLayout } from "@/layouts";
 import { size } from "lodash";
@@ -14,6 +15,7 @@ export default function CategoryPage(props) {
 
   return (
     <>
+      <Seo title={category.attributes.title} />
       <BasicLayout relative>
         <Container>
           <Separator height={50} />
