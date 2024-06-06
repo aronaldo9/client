@@ -39,6 +39,6 @@
 
   .tabs > div > a:nth-last-child(2) {
     position: absolute !important;
-    right: 46px;
+    right: 90px;
   }
 }

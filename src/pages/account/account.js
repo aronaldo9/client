@@ -63,7 +63,7 @@ export default function AccountPage() {
       menuItem: {
         key: 21,
         icon: "sign-out",
-        content: "",
+        content: "Salir",
         onClick: logout,
       },
     },
