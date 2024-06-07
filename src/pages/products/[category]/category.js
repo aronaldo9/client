@@ -20,7 +20,9 @@ export default function CategoryPage(props) {
         <Container>
           <Separator height={50} />
 
-          <h2>{category.attributes.title}</h2>
+          <h2 className="text-3xl text-center text-black mb-12">
+            {category.attributes.title}
+          </h2>
 
           {hasProducts ? (
             <>

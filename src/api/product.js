@@ -117,4 +117,25 @@ export class Product {
       throw error;
     }
   }
+
+  async getProductsOnSale({ limit = 30 }) {
+    try {
+      const filterDiscount = `filters[discount][$gt]=0`; // Filtrar productos con descuento mayor que 0
+      const paginationLimit = `pagination[limit]=${limit}`;
+      const sort = `sort=publishedAt:desc`;
+      const populate = `populate=*`;
+
+      const urlParams = `${filterDiscount}&${paginationLimit}&${sort}&${populate}`;
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${urlParams}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

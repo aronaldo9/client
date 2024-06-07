@@ -95,6 +95,15 @@ export function MenuMedium(props) {
             href="/about"
             onClick={toggleMenu} // close menu on click
           >
+            <Icon name="percent" className="h-2 pr-6 pb-6" />
+            <span>Rebajas</span>
+          </Link>
+
+          <Link
+            className="flex items-center justify-between text-black cursor-pointer no-underline hover:text-red-600"
+            href="/about"
+            onClick={toggleMenu} // close menu on click
+          >
             <Icon name="users" className="h-4 pr-6 pb-6" />
             <span>Nosotros</span>
           </Link>
