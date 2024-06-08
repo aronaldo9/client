@@ -38,7 +38,7 @@ export function Gallery(props) {
   return (
     <>
       <div className="flex flex-col sm:flex-row">
-        <div className="w-full sm:w-1/2 mb-5 sm:mb-0">
+        <div className="w-[80%] sm:w-1/2 mb-5 sm:mb-0">
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
