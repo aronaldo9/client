@@ -13,7 +13,6 @@ export function Gallery(props) {
     setShow((prevState) => !prevState);
   };
 
-  // Asegúrate de que gallery es un array
   const galleryData = gallery?.data ?? [];
 
   if (!Array.isArray(galleryData) || galleryData.length === 0) {
@@ -27,7 +26,7 @@ export function Gallery(props) {
     dots: true,
     dotsClass: styles.dots,
     infinite: true,
-    slidersToShow: 1,
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     customPaging: function (index) {
@@ -47,7 +46,7 @@ export function Gallery(props) {
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className="rounded-lg hover:opacity-60 cursor-pointer"
+            className={styles.principalImage}
           />
         </div>
         <div className={styles.grid}>
@@ -56,7 +55,7 @@ export function Gallery(props) {
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className="rounded-lg object-cover hover:opacity-60 cursor-pointer"
+                className={styles.thumbnail}
               />
             </div>
           ))}
