@@ -53,7 +53,7 @@
 .mainImageContainer {
   width: 100%;
   padding-right: 10px; /* Añade separación al borde izquierdo */
-  padding-left: 10px;
+  margin-left: 10px;
 }
 
 .thumbnailContainer {
