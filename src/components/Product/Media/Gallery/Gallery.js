@@ -13,6 +13,7 @@ export function Gallery(props) {
     setShow((prevState) => !prevState);
   };
 
+  // Asegúrate de que gallery es un array
   const galleryData = gallery?.data ?? [];
 
   if (!Array.isArray(galleryData) || galleryData.length === 0) {
@@ -31,7 +32,7 @@ export function Gallery(props) {
     arrows: false,
     customPaging: function (index) {
       return (
-        <Image
+        <img
           src={galleryData[index].attributes.url}
           className={styles.thumbnail}
         />
@@ -41,21 +42,24 @@ export function Gallery(props) {
 
   return (
     <>
-      <div className={styles.gallery}>
-        <div className={styles.principal}>
+      <div className="flex flex-col sm:flex-row">
+        <div className={`${styles.mainImageContainer} mb-5 sm:mb-0`}>
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className={styles.principalImage}
+            className={`${styles.mainImage} rounded-lg object-cover hover:opacity-60 cursor-pointer`}
           />
         </div>
-        <div className={styles.grid}>
+        <div className={`${styles.thumbnailGrid} flex flex-wrap`}>
           {map(galleryClone, (picture) => (
-            <div key={picture.id}>
+            <div
+              key={picture.id}
+              className={`${styles.thumbnailContainer} mb-5`}
+            >
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className={styles.thumbnail}
+                className={`${styles.thumbnail} rounded-lg object-cover hover:opacity-60 cursor-pointer`}
               />
             </div>
           ))}
