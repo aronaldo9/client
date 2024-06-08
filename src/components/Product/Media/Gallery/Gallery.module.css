@@ -39,19 +39,28 @@
 }
 
 .thumbnail {
-  height: 100px; /* Ajusta este valor según sea necesario */
-  width: 100px; /* Ajusta este valor según sea necesario */
+  height: 150px; /* Ajusta este valor según sea necesario */
+  width: 150px; /* Ajusta este valor según sea necesario */
   object-fit: cover;
 }
 
 .mainImage {
-  height: 300px; /* Ajusta este valor según sea necesario */
+  height: 400px; /* Ajusta este valor según sea necesario */
   width: 100%; /* Ajusta este valor según sea necesario */
   object-fit: cover;
 }
 
+.mainImageContainer {
+  width: 100%;
+  padding-right: 10px; /* Añade separación al borde izquierdo */
+}
+
 .thumbnailContainer {
-  padding: 5px; /* Ajusta este valor según sea necesario */
+  padding: 10px; /* Ajusta este valor según sea necesario */
   width: 50%;
   box-sizing: border-box;
+}
+
+.thumbnailGrid {
+  padding-left: 10px; /* Añade separación a las imágenes pequeñas */
 }

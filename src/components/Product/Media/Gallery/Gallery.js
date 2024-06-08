@@ -43,14 +43,14 @@ export function Gallery(props) {
   return (
     <>
       <div className="flex flex-col sm:flex-row">
-        <div className="w-full sm:w-1/2 mb-5 sm:mb-0">
+        <div className={`${styles.mainImageContainer} mb-5 sm:mb-0`}>
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className={`${styles.mainImage} rounded-lg w-full object-cover hover:opacity-60 cursor-pointer`}
+            className={`${styles.mainImage} rounded-lg object-cover hover:opacity-60 cursor-pointer`}
           />
         </div>
-        <div className="w-full sm:w-1/2 flex flex-wrap">
+        <div className={`${styles.thumbnailGrid} flex flex-wrap`}>
           {map(galleryClone, (picture) => (
             <div
               key={picture.id}
@@ -59,7 +59,7 @@ export function Gallery(props) {
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className={`${styles.thumbnail} rounded-lg w-full object-cover hover:opacity-60 cursor-pointer`}
+                className={`${styles.thumbnail} rounded-lg object-cover hover:opacity-60 cursor-pointer`}
               />
             </div>
           ))}
