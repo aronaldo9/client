@@ -17,7 +17,7 @@ export function Gallery(props) {
   const galleryData = gallery?.data ?? [];
 
   if (!Array.isArray(galleryData) || galleryData.length === 0) {
-    return <div>No images available</div>;
+    return <div>No hay imágenes disponibles</div>;
   }
 
   const galleryClone = [...galleryData];
@@ -51,7 +51,7 @@ export function Gallery(props) {
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className="rounded-lg w-full object-cover hover:opacity-60 cursor-pointer"
+                className="rounded-lg w-[150px] object-cover hover:opacity-60 cursor-pointer"
               />
             </div>
           ))}
