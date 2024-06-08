@@ -42,7 +42,7 @@ export function Gallery(props) {
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className="rounded-lg w-[80%] object-cover hover:opacity-60 cursor-pointer px-5"
+            className="rounded-lg w-[80%] object-cover hover:opacity-60 cursor-pointer mx-5"
           />
         </div>
         <div className="w-full sm:w-1/2 flex flex-wrap">
