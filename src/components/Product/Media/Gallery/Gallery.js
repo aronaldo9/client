@@ -1,4 +1,4 @@
-import styles from "./Gallery.module.css";
+import styles from "./Gallery.module.css"; // Asegúrate de que los estilos están importados correctamente
 import { Image } from "semantic-ui-react";
 import { map } from "lodash";
 import { FullModal } from "@/components/Shared";
@@ -31,7 +31,12 @@ export function Gallery(props) {
     slidesToScroll: 1,
     arrows: false,
     customPaging: function (index) {
-      return <Image src={galleryData[index].attributes.url} />;
+      return (
+        <Image
+          src={galleryData[index].attributes.url}
+          className={styles.thumbnail}
+        />
+      );
     },
   };
 
@@ -42,7 +47,7 @@ export function Gallery(props) {
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className="rounded-lg w-full object-cover hover:opacity-60 cursor-pointer"
+            className={`${styles.mainImage} rounded-lg w-full object-cover hover:opacity-60 cursor-pointer`}
           />
         </div>
         <div className="w-full sm:w-1/2 flex flex-wrap">
@@ -51,7 +56,7 @@ export function Gallery(props) {
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className="rounded-lg w-full object-cover hover:opacity-60 cursor-pointer"
+                className={`${styles.thumbnail} rounded-lg w-full object-cover hover:opacity-60 cursor-pointer`}
               />
             </div>
           ))}
