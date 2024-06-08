@@ -37,12 +37,12 @@ export function Gallery(props) {
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row gap-2">
         <div className="w-full sm:w-1/2 mb-5 sm:mb-0">
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className="rounded-lg w-[80%] object-cover hover:opacity-60 cursor-pointer mx-5"
+            className="rounded-lg w-[80%] object-cover hover:opacity-60 cursor-pointer"
           />
         </div>
         <div className="w-full sm:w-1/2 flex flex-wrap">
