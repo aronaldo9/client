@@ -1,72 +1,120 @@
-.carouselContainer {
-  height: 100%;
-}
-
-.carouselContainer > div {
-  height: 100%;
-}
-
-.carouselContainer > div > div {
-  width: 80%;
-  height: calc(100% - 100px);
-  margin: 0 auto;
-  border-radius: 20px;
-}
-
-.carouselContainer .dots {
-  display: flex !important;
-  align-items: flex-end;
-  justify-content: center;
-  height: 100px;
-}
-
-.carouselContainer .dots > li {
-  height: 60%;
-  width: 150px;
+.gallery {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 5px;
+  flex-direction: column; /* Para asegurar el diseño responsivo */
 }
 
-.carouselContainer .dots > li > img {
-  border-radius: 10px;
+@media (min-width: 640px) {
+  .gallery {
+    flex-direction: row;
+  }
 }
 
-.carouselContainer .dots > li > img:hover {
-  cursor: pointer;
-  opacity: 0.6;
-}
-
-.thumbnail {
-  height: 100px; /* Ajusta este valor según sea necesario */
-  width: 100px; /* Ajusta este valor según sea necesario */
-  object-fit: cover;
-}
-
-.mainImage {
-  height: auto; /* Permite que la altura se ajuste automáticamente */
-  max-width: 100%; /* Ajusta el ancho máximo al 100% del contenedor */
-  max-height: 500px; /* Ajusta este valor para limitar la altura máxima */
-  object-fit: cover;
-}
-
-.mainImageContainer {
+.principal {
   width: 100%;
-  padding-right: 10px; /* Añade separación al borde izquierdo */
-  padding-bottom: 10px; /* Añade separación en la parte inferior */
+  padding-right: 0;
+  padding-bottom: 10px;
   box-sizing: border-box;
+
+  @media (min-width: 640px) {
+    width: 50%;
+    padding-right: 10px;
+    padding-bottom: 0;
+  }
+
+  img {
+    border-radius: 10px;
+    height: auto;
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+
+    &:hover {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+  }
 }
 
-.thumbnailContainer {
-  padding: 5px; /* Ajusta este valor según sea necesario */
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.thumbnailGrid {
-  padding-left: 10px; /* Añade separación a las imágenes pequeñas */
+.grid {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* Añade un espacio entre las imágenes */
+  padding-left: 0;
+
+  @media (min-width: 640px) {
+    width: 50%;
+    padding-left: 10px;
+  }
+
+  > div {
+    width: 50%;
+
+    &:nth-child(1) {
+      padding: 0 10px 10px 0;
+    }
+
+    &:nth-child(2) {
+      padding: 0 0 10px 10px;
+    }
+
+    &:nth-child(3) {
+      padding: 10px 10px 0 0;
+    }
+
+    &:nth-child(4) {
+      padding: 10px 0 0 10px;
+    }
+
+    img {
+      border-radius: 16px;
+      object-fit: cover;
+      height: 100px; /* Ajusta la altura según sea necesario */
+      width: 100%;
+
+      &:hover {
+        opacity: 0.6;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.carouselContainer {
+  height: 100%;
+
+  > div {
+    height: 100%;
+
+    > div {
+      width: 80%;
+      height: calc(100% - 100px);
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+  }
+
+  .dots {
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100px;
+
+    > li {
+      height: 100%;
+      width: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 5px;
+
+      img {
+        border-radius: 10px;
+
+        &:hover {
+          opacity: 0.6;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
