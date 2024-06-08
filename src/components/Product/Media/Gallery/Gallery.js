@@ -1,4 +1,4 @@
-import styles from "./Gallery.module.css"; // Asegúrate de que los estilos están importados correctamente
+import styles from "./Gallery.module.css";
 import { Image } from "semantic-ui-react";
 import { map } from "lodash";
 import { FullModal } from "@/components/Shared";
@@ -27,12 +27,12 @@ export function Gallery(props) {
     dots: true,
     dotsClass: styles.dots,
     infinite: true,
-    slidersToShow: 1,
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     customPaging: function (index) {
       return (
-        <Image
+        <img
           src={galleryData[index].attributes.url}
           className={styles.thumbnail}
         />
@@ -52,7 +52,10 @@ export function Gallery(props) {
         </div>
         <div className="w-full sm:w-1/2 flex flex-wrap">
           {map(galleryClone, (picture) => (
-            <div key={picture.id} className="w-1/2 mb-5">
+            <div
+              key={picture.id}
+              className={`${styles.thumbnailContainer} mb-5`}
+            >
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}

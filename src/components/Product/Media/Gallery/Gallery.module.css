@@ -49,3 +49,9 @@
   width: 100%; /* Ajusta este valor según sea necesario */
   object-fit: cover;
 }
+
+.thumbnailContainer {
+  padding: 5px; /* Ajusta este valor según sea necesario */
+  width: 50%;
+  box-sizing: border-box;
+}
