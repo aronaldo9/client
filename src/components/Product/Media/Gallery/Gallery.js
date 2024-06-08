@@ -27,39 +27,31 @@ export function Gallery(props) {
     dots: true,
     dotsClass: styles.dots,
     infinite: true,
-    slidesToShow: 1,
+    slidersToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     customPaging: function (index) {
-      return (
-        <img
-          src={galleryData[index].attributes.url}
-          className={styles.thumbnail}
-        />
-      );
+      return <Image src={galleryData[index].attributes.url} />;
     },
   };
 
   return (
     <>
       <div className="flex flex-col sm:flex-row">
-        <div className={`${styles.mainImageContainer} mb-5 sm:mb-0`}>
+        <div className="w-full sm:w-1/2 mb-5 sm:mb-0">
           <Image
             src={principalImage.attributes.url}
             onClick={onOpenClose}
-            className={`${styles.mainImage} rounded-lg object-cover hover:opacity-60 cursor-pointer`}
+            className="rounded-lg w-full object-cover hover:opacity-60 cursor-pointer"
           />
         </div>
-        <div className={`${styles.thumbnailGrid} flex flex-wrap`}>
+        <div className="w-full sm:w-1/2 flex flex-wrap">
           {map(galleryClone, (picture) => (
-            <div
-              key={picture.id}
-              className={`${styles.thumbnailContainer} mb-5`}
-            >
+            <div key={picture.id} className="w-1/2 mb-5">
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className={`${styles.thumbnail} rounded-lg object-cover hover:opacity-60 cursor-pointer`}
+                className="rounded-lg w-full object-cover hover:opacity-60 cursor-pointer"
               />
             </div>
           ))}

@@ -37,30 +37,3 @@
   cursor: pointer;
   opacity: 0.6;
 }
-
-.thumbnail {
-  height: 150px; /* Ajusta este valor según sea necesario */
-  width: 150px; /* Ajusta este valor según sea necesario */
-  object-fit: cover;
-}
-
-.mainImage {
-  height: 400px; /* Ajusta este valor según sea necesario */
-  width: 100%; /* Ajusta este valor según sea necesario */
-  object-fit: cover;
-}
-
-.mainImageContainer {
-  width: 100%;
-  padding-right: 10px; /* Añade separación al borde izquierdo */
-}
-
-.thumbnailContainer {
-  padding: 10px; /* Ajusta este valor según sea necesario */
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.thumbnailGrid {
-  padding-left: 10px; /* Añade separación a las imágenes pequeñas */
-}
