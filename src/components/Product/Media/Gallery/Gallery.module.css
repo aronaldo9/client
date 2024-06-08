@@ -47,6 +47,7 @@
 .mainImage {
   height: auto; /* Permite que la altura se ajuste automáticamente */
   max-width: 100%; /* Ajusta el ancho máximo al 100% del contenedor */
+  max-height: 500px; /* Ajusta este valor para limitar la altura máxima */
   object-fit: cover;
 }
 
