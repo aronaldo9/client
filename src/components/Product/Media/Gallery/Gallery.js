@@ -51,7 +51,7 @@ export function Gallery(props) {
               <Image
                 src={picture.attributes.url}
                 onClick={onOpenClose}
-                className="rounded-lg w-[150px] object-cover hover:opacity-60 cursor-pointer"
+                className="rounded-lg w-[80%] object-cover hover:opacity-60 cursor-pointer"
               />
             </div>
           ))}
