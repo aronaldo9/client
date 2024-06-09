@@ -18,10 +18,13 @@ export function LoginForm() {
       try {
         const response = await authCtrl.login(formValue);
         login(response.jwt);
-
-        // router.push("/");
       } catch (error) {
         console.error(error);
+        formik.setFieldError(
+          "password",
+          error.message ||
+            "El correo electrónico o la contraseña son incorrectos"
+        );
       }
     },
   });
@@ -55,7 +58,11 @@ export function LoginForm() {
           placeholder=" "
           value={formik.values.password}
           onChange={formik.handleChange}
-          error={formik.errors.password}
+          error={
+            formik.touched.password && formik.errors.password
+              ? { content: formik.errors.password }
+              : null
+          }
           required
         />
         <label
