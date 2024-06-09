@@ -70,7 +70,7 @@ export default function HomePage() {
           title="¿Alguna vez has querido tener una joya única?"
           subtitle="Muéstranos tu idea y la haremos realidad"
           btnTitle="Ver más"
-          btnLink="/personalizados"
+          btnLink="/products/personalizados"
           image="/images/joyasPerso.jpeg"
         />
 
